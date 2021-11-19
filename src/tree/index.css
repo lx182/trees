@@ -1,15 +1,11 @@
 .tree {
   background-color: #efefef;
+  height: 100%;
   padding: 10px;
   font-family: monospace;
-  display: flex;
-  flex-direction: column-reverse;
-  height: auto;
 }
 
 .tree .indent{
   padding-inline-start: 38px;
-  margin-bottom: 1em ;
-  display: flex;
-  flex-direction: column-reverse;
+  margin-top: 1em ;
 }

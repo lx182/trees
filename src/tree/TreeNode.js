@@ -1,11 +1,14 @@
-const TreeNode = ({ node, children }) => {
+import { addDots } from "./addDots.js";
+
+const TreeNode = ({ node, children, level = 0 }) => {
+  const nodeName = addDots(node, level);
   return (
     <>
-      {node}
+      {nodeName}
       {children &&
         children.map((node) => (
           <div key={node.node} className="indent">
-            <TreeNode {...node} />
+            <TreeNode {...node} level={level + 1} />
           </div>
         ))}
     </>
