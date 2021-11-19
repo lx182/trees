@@ -9,3 +9,9 @@
   padding-inline-start: 38px;
   margin-top: 1em ;
 }
+
+.delete-node {
+  font-size: 10px;
+  margin-left: 1em;
+  cursor: pointer;
+}
