@@ -1,26 +1,12 @@
 import "./index.css";
+import TreeNode from "./TreeNode";
+const tree = require('./data.json');
 
 export default function Tree() {
+  const {node, children} = tree;
   return (
     <div className="tree">
-      <ol>
-        <li>root
-          <ol>
-            <li>ant</li>
-            <li>bear
-              <ol>
-                <li>cat</li>
-                <li>dog
-                  <ol>
-                    <li>elephant</li>
-                  </ol>
-                </li>
-              </ol>
-            </li>
-            <li>frog</li>
-          </ol>
-        </li>
-      </ol>
+      <TreeNode node={node} children={children} />
     </div>
   );
 }

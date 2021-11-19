@@ -5,28 +5,7 @@
   font-family: monospace;
 }
 
-.tree ol {
-  list-style-type: none;
-  counter-reset: item;
-  padding: 0;
-}
-
-.tree > ol > li:first-child {
-  margin-top: 0;
-}
-
-.tree ol li {
-  display: table;
-  counter-increment: item;
-  margin-top: 1em;
-}
-
-.tree ol li:before {
-    content: counters(item, ".");
-    display: table-cell;
-    padding-right: 0.6em;    
-}
-
-.tree ol li li:before {
-    content: counters(item, ".") " ";
+.tree .indent{
+  padding-inline-start: 38px;
+  margin-top: 1em ;
 }
