@@ -3,6 +3,7 @@
   height: 100%;
   padding: 10px;
   font-family: monospace;
+  position: relative;
 }
 
 .tree ul, 
@@ -14,4 +15,40 @@
 
 .tree ul {
   padding-inline-start: 38px;
-} 
+}
+
+.tree > .tree__rule--level-1 {
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: red;
+  top: 0px;
+  left: 10px;
+}
+
+.tree > .tree__rule--level-2 {
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: red;
+  top: 0px;
+  left: 48px;
+}
+
+.tree > .tree__rule--level-3 {
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: red;
+  top: 0px;
+  left: 86px;
+}
+
+.tree > .tree__rule--level-4 {
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: red;
+  top: 0px;
+  left: 124px;
+}
