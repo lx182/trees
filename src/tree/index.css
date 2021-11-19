@@ -3,52 +3,30 @@
   height: 100%;
   padding: 10px;
   font-family: monospace;
-  position: relative;
 }
 
-.tree ul, 
-.tree li{
+.tree ol {
   list-style-type: none;
+  counter-reset: item;
+  padding: 0;
+}
+
+.tree > ol > li:first-child {
   margin-top: 0;
-  margin-bottom: 1rem;
 }
 
-.tree ul {
-  padding-inline-start: 38px;
+.tree ol li {
+  display: table;
+  counter-increment: item;
+  margin-top: 1em;
 }
 
-.tree > .tree__rule--level-1 {
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  background-color: red;
-  top: 0px;
-  left: 10px;
+.tree ol li:before {
+    content: counters(item, ".");
+    display: table-cell;
+    padding-right: 0.6em;    
 }
 
-.tree > .tree__rule--level-2 {
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  background-color: red;
-  top: 0px;
-  left: 48px;
-}
-
-.tree > .tree__rule--level-3 {
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  background-color: red;
-  top: 0px;
-  left: 86px;
-}
-
-.tree > .tree__rule--level-4 {
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  background-color: red;
-  top: 0px;
-  left: 124px;
+.tree ol li li:before {
+    content: counters(item, ".") " ";
 }
