@@ -8,6 +8,7 @@ const TreeNode = ({ node, children = [] }) => {
   return (
     <>
       {node}
+      <InputNode children={childrenToMap} setChildren={setChildrenToMap} />
       {childrenToMap && (
         <>
           {childrenToMap.map((node) => (
@@ -20,10 +21,6 @@ const TreeNode = ({ node, children = [] }) => {
               />
             </div>
           ))}
-          <InputNode children={childrenToMap} setChildren={setChildrenToMap} />
-          {childrenToMap.length > 0 && (
-            <pre>{JSON.stringify(childrenToMap, null, 2)}</pre>
-          )}
         </>
       )}
     </>

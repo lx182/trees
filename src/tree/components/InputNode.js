@@ -14,13 +14,7 @@ const InputNode = ({ children = [], setChildren = () => {} }) => {
       el.target.value = "";
     }
   };
-  return (
-    children.length > 0 && (
-      <div className="indent">
-        <input type="text" onKeyDown={(el) => handleAddChild(el)} />
-      </div>
-    )
-  );
+  return <input className="input-text-node" type="text" onKeyDown={(el) => handleAddChild(el)} />;
 };
 
 export default InputNode;
