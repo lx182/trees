@@ -1,5 +1,5 @@
 import { useTreeContext } from "../providers/TreeProviders";
-import { removeNodeTree } from "../services/TreeService";
+import { removeNodeTree } from "../utils/utils";
 
 const DeleteNode = ({
   parent,
@@ -13,7 +13,7 @@ const DeleteNode = ({
     const newChildren = [...children];
     setChildren(newChildren.filter((n) => n.node !== name));
     // Remove node on the tree and save PUT the new tree
-    const newTree = await removeNodeTree(tree, parent, name);
+    const newTree = removeNodeTree(tree, parent, name);
     setTree(newTree);
   };
   return (

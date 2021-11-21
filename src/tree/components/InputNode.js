@@ -1,10 +1,10 @@
 import { useTreeContext } from "../providers/TreeProviders";
-import { addNodeTree } from "../services/TreeService";
+import { addNodeTree } from "../utils/utils";
 
 const InputNode = ({ parent, children = [], setChildren = () => {} }) => {
   const { toggleAlp, tree, setTree } = useTreeContext();
 
-  const handleAddChild = async (el) => {
+  const handleAddChild = (el) => {
     if (el && el.key === "Enter" && el.target.value) {
       //Creates a copy of the state
       const newChildren = [...children];
@@ -19,7 +19,7 @@ const InputNode = ({ parent, children = [], setChildren = () => {} }) => {
       setChildren(newChildren);
       el.target.value = "";
       // Added the node on the Tree structure and save
-      const newTree = await addNodeTree(tree, parent, newNode);
+      const newTree =  addNodeTree(tree, parent, newNode);
       setTree(newTree);
 
     }

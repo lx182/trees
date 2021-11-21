@@ -32,34 +32,4 @@ export const updateTree = async (tree) => {
   }
 };
 
-export const addNodeTree = async (tree, parent, newNode) => {
-  const nodeToModify = findANode(tree, parent);
-  const newChildren = [...nodeToModify.children];
 
-  newChildren.push(newNode);
-  nodeToModify.children = newChildren;
-  const newTree = { ...tree };
-
-  try {
-    await updateTree(newTree);
-  } catch (error) {
-    console.error(error);
-  }
-  return newTree;
-};
-
-export const removeNodeTree = async (tree, parent, nodeName) => {
-  const nodeToModify = findANode(tree, parent);
-  const filterChildren = nodeToModify.children.filter(
-    (n) => n.node !== nodeName
-  );
-  nodeToModify.children = filterChildren;
-  const newTree = { ...tree };
-
-  try {
-    await updateTree(newTree);
-  } catch (error) {
-    console.error(error);
-  }
-  return newTree;
-};

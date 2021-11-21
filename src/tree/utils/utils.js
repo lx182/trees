@@ -49,3 +49,24 @@ export const findANode = (root, name) => {
   }
   return null;
 };
+
+export const addNodeTree = (tree, parent, newNode) => {
+  const nodeToModify = findANode(tree, parent);
+  const newChildren = [...nodeToModify.children];
+
+  newChildren.push(newNode);
+  nodeToModify.children = newChildren;
+  const newTree = { ...tree };
+
+  return newTree;
+};
+
+export const removeNodeTree = (tree, parent, nodeName) => {
+  const nodeToModify = findANode(tree, parent);
+  const filterChildren = nodeToModify.children.filter(
+    (n) => n.node !== nodeName
+  );
+  nodeToModify.children = filterChildren;
+  const newTree = { ...tree };
+  return newTree;
+};
