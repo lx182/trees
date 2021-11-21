@@ -1,13 +1,28 @@
-const DeleteNode = ({ node, children = [], setChildren = () => {} }) => {
-  const handleDeleteNode = () => {
-    //Creates a copy of the state
+import { useTreeContext } from "../providers/TreeProviders";
+import { removeNodeTree } from "../services/TreeService";
+
+const DeleteNode = ({
+  parent,
+  name,
+  children = [],
+  setChildren = () => {},
+}) => {
+  const { tree, setTree } = useTreeContext();
+
+  const handleDeleteNode = async() => {
     const newChildren = [...children];
-    //use filter to remove the node by its name
-    setChildren(newChildren.filter((n) => n.node !== node.node));
+    setChildren(newChildren.filter((n) => n.node !== name));
+    // Remove node on the tree and save PUT the new tree
+    const newTree = await removeNodeTree(tree, parent, name);
+    setTree(newTree);
   };
   return (
-    !node?.children && (
-      <span className="delete-node" onClick={() => handleDeleteNode()}>
+    name !== "root" && (
+      <span
+        title={`Delete '${name}' node`}
+        className="delete-node"
+        onClick={() => handleDeleteNode()}
+      >
         ❌
       </span>
     )

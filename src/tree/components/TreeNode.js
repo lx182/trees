@@ -1,24 +1,31 @@
 import InputNode from "./InputNode";
 import DeleteNode from "./DeleteNode";
-import { useChildren} from "../hooks/useChildren";
+import { useChildren } from "../hooks/useChildren";
 
-const TreeNode = ({ node, children = [] }) => {
+const TreeNode = ({ node: parent, children = [] }) => {
   const { childrenToMap, setChildrenToMap } = useChildren(children);
 
   return (
     <>
-      {node}
-      <InputNode children={childrenToMap} setChildren={setChildrenToMap} />
+      {parent}
+      <InputNode
+        parent={parent}
+        children={childrenToMap}
+        setChildren={setChildrenToMap}
+      />
+
       {childrenToMap && (
         <>
           {childrenToMap.map((node) => (
             <div key={node.node} className="indent">
-              <TreeNode {...node} />
               <DeleteNode
-                node={node}
+                parent={parent}
+                name={node.node}
                 children={childrenToMap}
                 setChildren={setChildrenToMap}
               />
+              <TreeNode {...node} />
+              
             </div>
           ))}
         </>

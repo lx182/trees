@@ -33,3 +33,19 @@ export const processChildren = (unsortedChildren, sortedChildren) => {
 
   return unsortedChildren; // if no condition is met we return the original list
 };
+
+export const findANode = (root, name) => {
+  const stack = [];
+
+  stack.push(root);
+
+  while (stack.length > 0) {
+    const node = stack.pop();
+    if (node.node === name) {
+      return node;
+    } else if (node.children && node.children.length) {
+      node.children.forEach((child) => stack.push(child));
+    }
+  }
+  return null;
+};

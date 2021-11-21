@@ -3,7 +3,8 @@ export const TreeContext = createContext({});
 
 const TreeProvider = ({ children }) => {
   const [toggleAlp, setToggleAlp] = useState(false);
-  const values = { toggleAlp, setToggleAlp };
+  const [tree, setTree] = useState(null);
+  const values = { toggleAlp, setToggleAlp, tree, setTree};
   return <TreeContext.Provider value={values}>{children}</TreeContext.Provider>;
 };
 
